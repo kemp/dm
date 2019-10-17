@@ -1,0 +1,47 @@
+---
+# Feel free to add content and custom Front Matter to this file.
+# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+---
+
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% if site.title %}
+    <title>Compose a new message for {{ site.github.owner.name }} on GitHub</title>
+    {% endif %}
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      {% if site.title and site.title != page.title %}
+          <h1>Compose a new message for {{ site.github.owner.name }} on GitHub</h1>
+      {% endif %}
+
+      <form action="{{  site.github.repository_url | append: '/issues/new'  }}" method="GET">
+          <div class="form-group">
+              <label for="title">Subject message: </label>
+              <input class="form-control" name="title" id="title">
+          </div>
+
+          <div class="form-group">
+              <label for="body">Body: </label>
+              <textarea class="form-control" name="body" id="body"></textarea>
+          </div>
+
+          <input class="btn btn-primary" type="submit" value="Send">
+      </form>
+
+      {% if site.github.private != true and site.github.license %}
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. {% github_edit_link "Improve this page" %}.
+      </div>
+      {% endif %}
+    </div>
+  </body>
+</html>
+

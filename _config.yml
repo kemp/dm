@@ -1,0 +1,5 @@
+repository: kemp/dm
+
+# Build settings
+theme: jekyll-theme-primer
+
